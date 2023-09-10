@@ -1,7 +1,7 @@
 export {};
 async function logic(payload: BasePayload) {
   
-        const html = await sendRequest("https://witanime.cam/", {});
+        const html = await sendRequest("https://witanime.me/", {});
         const DOMParserInstance = new DOMParser();
         const DOM = DOMParserInstance.parseFromString(html, "text/html");
     
@@ -12,7 +12,7 @@ async function logic(payload: BasePayload) {
         spotlights.forEach((item) => {
             spotlight_data.push(
                 {
-                    url: `https://witanime.cam/${item.querySelector<HTMLElement>(".owl-carousel .item")!.getAttribute("href")}`,
+                    url: `https://witanime.me/${item.querySelector<HTMLElement>(".owl-carousel .item")!.getAttribute("href")}`,
                 titles: {
                     primary: item.querySelector<HTMLElement>(".owl-carousel .item")?.getAttribute("title"),
                 },
@@ -35,7 +35,7 @@ async function logic(payload: BasePayload) {
         recents.forEach((item) => { 
             recents_data.push(
             {
-                url: `https://witanime.cam/${item.querySelector<HTMLElement>(".episodes-card-title h3 a ")!.getAttribute("href")}`,
+                url: `https://witanime.me/${item.querySelector<HTMLElement>(".episodes-card-title h3 a ")!.getAttribute("href")}`,
             titles: {
                 primary: item.querySelector<HTMLElement>(".ep-card-anime-title h3 a")?.innerText,
             },
@@ -61,7 +61,7 @@ async function logic(payload: BasePayload) {
 
         new_data.push(
             {
-                url: `https://witanime.cam/${item.querySelector<HTMLElement>(".anime-card-poster > div.hover.ehover6 > a")?.getAttribute("href")}`,
+                url: `https://witanime.me/${item.querySelector<HTMLElement>(".anime-card-poster > div.hover.ehover6 > a")?.getAttribute("href")}`,
                 titles: {
                     primary: item.querySelector<HTMLElement>(".anime-card-title h3 a")?.innerText
                 },
