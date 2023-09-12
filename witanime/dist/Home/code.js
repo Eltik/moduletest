@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 async function logic(payload) {
     var _a, _b, _c, _d, _e, _f;
-    const html = await sendRequest("https://witanime.cam/", {});
+    const html = await sendRequest("https://witanime.me", {});
     const DOMParserInstance = new DOMParser();
     const DOM = DOMParserInstance.parseFromString(html, "text/html");
     const spotlights = DOM.querySelectorAll(".owl-carousel .item");
@@ -11,7 +11,7 @@ async function logic(payload) {
     spotlights.forEach((item) => {
         var _a, _b, _c;
         spotlight_data.push({
-            url: `https://witanime.cam/${item.querySelector(".owl-carousel .item").getAttribute("href")}`,
+            url: `https://witanime.me${item.querySelector(".owl-carousel .item").getAttribute("href")}`,
             titles: {
                 primary: (_a = item.querySelector(".owl-carousel .item")) === null || _a === void 0 ? void 0 : _a.getAttribute("title"),
             },
@@ -32,7 +32,7 @@ async function logic(payload) {
     recents.forEach((item) => {
         var _a, _b, _c;
         recents_data.push({
-            url: `https://witanime.cam/${item.querySelector(".episodes-card-title h3 a ").getAttribute("href")}`,
+            url: `https://witanime.me${item.querySelector(".episodes-card-title h3 a ").getAttribute("href")}`,
             titles: {
                 primary: (_a = item.querySelector(".ep-card-anime-title h3 a")) === null || _a === void 0 ? void 0 : _a.innerText,
             },
@@ -52,7 +52,7 @@ async function logic(payload) {
     for (let i = 0; i < (new_list === null || new_list === void 0 ? void 0 : new_list.length); i++) {
         let item = new_list[i];
         new_data.push({
-            url: `https://witanime.cam/${(_c = item.querySelector(".anime-card-poster > div.hover.ehover6 > a")) === null || _c === void 0 ? void 0 : _c.getAttribute("href")}`,
+            url: `https://witanime.me${(_c = item.querySelector(".anime-card-poster > div.hover.ehover6 > a")) === null || _c === void 0 ? void 0 : _c.getAttribute("href")}`,
             titles: {
                 primary: (_d = item.querySelector(".anime-card-title h3 a")) === null || _d === void 0 ? void 0 : _d.innerText
             },
